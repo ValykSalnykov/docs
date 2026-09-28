@@ -2,14 +2,24 @@
 title: "Текущий пользователь"
 description: "GET /auth/me — данные действующего аккаунта"
 api: "GET /auth/me"
-authMethod: "bearer"
+playground: "simple"
 ---
 
 Возвращает `{ user }` для действующего Bearer-токена. Код маршрута: `apps/api/src/auth/auth.controller.ts`.
 
 <Warning>
-  Не вводите реальные production-токены в пробную документацию. Используйте локальный тестовый аккаунт и локальный API.
+  Используйте только локальный тестовый токен. Не вводите production-токены в пробную документацию.
 </Warning>
+
+<RequestExample>
+
+```bash
+curl --request GET \
+  --url http://localhost:3001/api/auth/me \
+  --header "Authorization: Bearer <local-test-token>"
+```
+
+</RequestExample>
 
 <ResponseExample>
 
