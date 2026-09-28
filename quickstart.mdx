@@ -1,47 +1,38 @@
 ---
-title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+title: "Локальный запуск"
+description: "Минимальные шаги для запуска AI Invoice на своей машине"
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
+## Требования
 
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
+- Node.js 24 и pnpm 11.7.0 через Corepack.
+- Docker Compose.
+- Доступ к действительным ключам Azure Document Intelligence и OpenAI для реального распознавания.
 
-## Prerequisites
+## Подготовка
 
-Before you begin, you must have:
+Из корня репозитория создайте локальные файлы окружения из шаблонов и заполните нужные значения. Не публикуйте `.env` и ключи.
 
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
+```bash
+cp infra/.env.example infra/.env
+cp packages/db/.env.example packages/db/.env
+cp apps/api/.env.example apps/api/.env
+cp apps/web/.env.example apps/web/.env.local
+corepack enable
+CI=true pnpm install
+pnpm db:generate
+pnpm local:infra
+pnpm db:migrate
+pnpm local:db:seed
+pnpm dev:full
+```
 
-## Get started
+`local:infra` создаёт bucket `invoice-documents`. Dev seed предназначен только для локальной разработки; не запускайте его на данных клиентов или в production.
 
-<Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
+## Адреса
 
-    ```bash
-    npm install your-package
-    ```
-  </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
+- Web: `http://localhost:3000`
+- API: `http://localhost:3001/api`
+- MinIO Console: `http://localhost:9001`
 
-    ```bash
-    your-cli init
-    ```
-  </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
-
-    ```bash
-    your-cli start
-    ```
-  </Step>
-</Steps>
-
-<Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
-
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
-</Tip>
+За полными настройками и диагностикой обращайтесь к `docs/local-development.md` и `docs/configuration.md` в репозитории.

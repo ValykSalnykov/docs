@@ -11,12 +11,13 @@
   "navigation": {
     "pages": [
       {
-        "group": "Getting Started",
+        "group": "Основы",
         "pages": [
           "index",
           "quickstart"
         ]
-      }
+      },
+      "rabotas-nakladnoy"
     ],
     "global": {
       "anchors": [
