@@ -76,7 +76,10 @@
   "description": "Загрузка, распознавание и проверка входящих накладных перед отправкой в Syrve.",
   "api": {
     "mdx": {
-      "server": "http://localhost:3001/api"
+      "server": "http://localhost:3001/api",
+      "auth": {
+        "method": "bearer"
+      }
     }
   }
 }
