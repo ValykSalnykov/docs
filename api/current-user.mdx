@@ -1,7 +1,8 @@
 ---
-title: "GET /auth/me"
-description: "Текущий пользователь и его доступы"
+title: "Текущий пользователь"
+description: "GET /auth/me — данные действующего аккаунта"
 api: "GET /auth/me"
+authMethod: "bearer"
 ---
 
 Возвращает `{ user }` для действующего Bearer-токена. Код маршрута: `apps/api/src/auth/auth.controller.ts`.
