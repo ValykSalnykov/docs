@@ -1,0 +1,29 @@
+---
+title: "GET /health"
+description: "Состояние локального API и его зависимостей"
+api: "GET /health"
+authMethod: "none"
+---
+
+Проверяет доступность PostgreSQL, Redis, MinIO и фонового worker. В этом демо базовый адрес API — `http://localhost:3001/api`; playground работает только при запущенном локальном стеке.
+
+<Info>
+  Эндпоинт описан по `apps/api/src/health.controller.ts`. В документации не используются production-ключи.
+</Info>
+
+<ResponseExample>
+
+```json
+{
+  "status": "ok",
+  "checks": {
+    "database": "ok",
+    "redis": "ok",
+    "storage": "ok",
+    "processingWorker": "healthy"
+  },
+  "processingQueue": {}
+}
+```
+
+</ResponseExample>

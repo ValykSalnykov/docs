@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "AI Invoice",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
@@ -9,46 +9,51 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "pages": [
+    "tabs": [
       {
-        "group": "Основы",
-        "pages": [
-          "index",
-          "quickstart"
+        "tab": "Руководство",
+        "groups": [
+          {
+            "group": "Основы",
+            "pages": [
+              "index",
+              "roli-i-dostup",
+              "rabotas-nakladnoy"
+            ]
+          },
+          {
+            "group": "Разработчикам",
+            "pages": [
+              "quickstart",
+              "arkhitektura"
+            ]
+          },
+          {
+            "group": "Демо Mintlify",
+            "pages": [
+              "komponenty"
+            ]
+          }
         ]
       },
-      "rabotas-nakladnoy"
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+      {
+        "tab": "API",
+        "pages": [
+          "api/health",
+          "api/current-user"
+        ]
+      }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "label": "Открыть AI Invoice",
+      "href": "https://invoice.daocloud.fun/"
     }
   },
   "contextual": {
@@ -65,9 +70,15 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+    }
+  },
+  "description": "Загрузка, распознавание и проверка входящих накладных перед отправкой в Syrve.",
+  "api": {
+    "mdx": {
+      "auth": {
+        "method": "bearer"
+      },
+      "server": "http://localhost:3001/api"
     }
   }
 }

@@ -1,0 +1,23 @@
+---
+title: "GET /auth/me"
+description: "Текущий пользователь и его доступы"
+api: "GET /auth/me"
+---
+
+Возвращает `{ user }` для действующего Bearer-токена. Код маршрута: `apps/api/src/auth/auth.controller.ts`.
+
+<Warning>
+  Не вводите реальные production-токены в пробную документацию. Используйте локальный тестовый аккаунт и локальный API.
+</Warning>
+
+<ResponseExample>
+
+```json
+{
+  "user": {
+    "id": "example-user-id"
+  }
+}
+```
+
+</ResponseExample>
